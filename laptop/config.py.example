@@ -1,0 +1,20 @@
+# Copy this file to config.py, then fill in your own values.
+# config.py holds your password. Never commit it.
+
+# Leave these two as they are.
+MQTT_HOST = "gardenspine.ikapo.fi"
+MQTT_PORT = 8883
+
+# From your credential slip. The username is the same as the device ID.
+DEVICE_ID = "gm-01"
+MQTT_USERNAME = "gm-01"
+MQTT_PASSWORD = "[DEVICE_PASSWORD]"
+
+# From your charter page. These must match the registry exactly.
+ZONE = "greenhouse-1"
+DEVICE_TYPE = "climate-node"
+
+FIRMWARE_VERSION = "laptop-0.1.0"
+
+# Download from https://gardenspine.ikapo.fi/downloads and save it beside this file.
+CA_FILE = "garden-spine-ca.crt"

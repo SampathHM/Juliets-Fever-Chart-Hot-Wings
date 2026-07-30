@@ -1,0 +1,16 @@
+# Your credentials. Never commit these.
+config.h
+config.py
+secrets.h
+.env
+
+# Build output
+build/
+*.bin
+*.elf
+
+# Editor and OS
+__pycache__/
+*.pyc
+.vscode/
+.DS_Store

@@ -1,0 +1,29 @@
+name: Compile examples
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-arduino-cli@v2
+      - run: arduino-cli config init
+      - run: arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+      - run: arduino-cli core install esp32:esp32@3.3.7 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+      - run: arduino-cli lib install "PubSubClient@2.8" "DHT sensor library@1.4.6" "ESP32Servo@3.0.9"
+
+      # config.h goes beside the sketch, exactly where a student puts it. This also proves the
+      # documented layout resolves, rather than testing a copy hidden inside the library.
+      - run: |
+          for sketch in examples/*/; do
+            cp config.h.example "$sketch/config.h"
+          done
+
+      - run: |
+          for sketch in examples/*/; do
+            arduino-cli compile --fqbn esp32:esp32:esp32 --library . --warnings default "$sketch"
+          done
