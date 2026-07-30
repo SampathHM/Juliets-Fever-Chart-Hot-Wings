@@ -4,7 +4,7 @@
 
 #pragma once
 
-// Leave these three as they are. The programme network is open, so the password is empty.
+// Leave these four as they are. The programme network is open, so the password is empty.
 const char* SPINE_WIFI_SSID = "panoulu";
 const char* SPINE_WIFI_PASSWORD = "";
 const char* SPINE_MQTT_HOST = "gardenspine.ikapo.fi";
@@ -21,10 +21,3 @@ const char* SPINE_DEVICE_TYPE = "climate-node";
 
 // Your own version string. Bump it so you can tell which build is running.
 const char* SPINE_FIRMWARE_VERSION = "0.1.0";
-
-// There is no certificate to paste. The programme CA ships inside the library, in spine_ca.h.
-// Only if you point a device at a different broker: uncomment both lines and supply your own.
-// #define SPINE_CUSTOM_CA
-// const char* SPINE_CA = R"EOF(
-// -----BEGIN CERTIFICATE-----
-// )EOF";

@@ -15,6 +15,13 @@
 //
 // If the broker's CA is ever replaced, update this file, bump the version in library.properties,
 // and tell every team to reinstall the library. Devices cannot connect until they do.
+//
+// To point a device at a different broker, define both of these in config.h instead:
+//
+//   #define SPINE_CUSTOM_CA
+//   const char* SPINE_CA = R"EOF(
+//   -----BEGIN CERTIFICATE-----
+//   )EOF";
 
 #pragma once
 
